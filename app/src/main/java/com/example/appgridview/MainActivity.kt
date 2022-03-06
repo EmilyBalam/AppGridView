@@ -12,18 +12,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var frutas: ArrayList<String> = ArrayList()
-        frutas.add("Manzana")
-        frutas.add("Durazno")
-        frutas.add("Platano")
-        frutas.add("Sandia")
+        var frutas: ArrayList<Fruta> = ArrayList()
+        frutas.add(Fruta("Manzana",R.drawable.manzana))
+        frutas.add(Fruta("Durazno",R.drawable.durazno))
+        frutas.add(Fruta("Platano",R.drawable.platano))
+        frutas.add(Fruta("Sandia",R.drawable.sandia))
+        frutas.add(Fruta("Manzana",R.drawable.manzana))
+        frutas.add(Fruta("Durazno",R.drawable.durazno))
+        frutas.add(Fruta("Platano",R.drawable.platano))
+        frutas.add(Fruta("Sandia",R.drawable.sandia))
+        frutas.add(Fruta("Manzana",R.drawable.manzana))
+        frutas.add(Fruta("Durazno",R.drawable.durazno))
+        frutas.add(Fruta("Platano",R.drawable.platano))
+        frutas.add(Fruta("Sandia",R.drawable.sandia))
+        frutas.add(Fruta("Manzana",R.drawable.manzana))
+        frutas.add(Fruta("Durazno",R.drawable.durazno))
+        frutas.add(Fruta("Platano",R.drawable.platano))
+        frutas.add(Fruta("Sandia",R.drawable.sandia))
 
         var grid:GridView= findViewById(R.id.Grid)
-        var adaptador = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,frutas)
+        var adaptador = Adaptador(this,frutas)
         grid.adapter= adaptador
 
         grid.onItemClickListener= AdapterView.OnItemClickListener { parent, view, position, id ->
-            Toast.makeText(this,frutas.get(position),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,frutas.get(position).nombre,Toast.LENGTH_SHORT).show()
         }
     }
 }
